@@ -1,0 +1,7 @@
+discord.py==2.5.2
+aiohttp==3.12.14
+matplotlib==3.10.3
+pandas==2.3.1
+groq==0.30.0
+flask==3.1.1
+python-dotenv==1.1.1

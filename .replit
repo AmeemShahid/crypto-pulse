@@ -1,0 +1,42 @@
+modules = ["python-3.11"]
+
+[nix]
+channel = "stable-24_05"
+packages = ["cairo", "ffmpeg-full", "freetype", "ghostscript", "glibcLocales", "gobject-introspection", "gtk3", "pkg-config", "qhull", "tcl", "tk"]
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Discord Crypto Bot"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "discord_crypto_bot"
+
+[[workflows.workflow]]
+name = "Discord Crypto Bot"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "pip install discord.py aiohttp matplotlib pandas groq flask python-dotenv && python main.py"
+waitForPort = 5000
+
+[[workflows.workflow]]
+name = "discord_crypto_bot"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "pip install discord.py aiohttp matplotlib pandas flask groq python-dotenv && python main.py"
+
+[[ports]]
+localPort = 5000
+externalPort = 80
