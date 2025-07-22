@@ -1,0 +1,7 @@
+discord.py 
+aiohttp
+matplotlib
+pandas
+groq
+flask
+python-dotenv
